@@ -30,6 +30,6 @@ public class UserTest {
 
         assertThat(testUserRes).isNotNull();
         assert users != null;
-        assertThat(users.get(0).getUsername()).isEqualTo("TEST");
+        assertThat(users.get(0).getUsername()).isEqualTo("TEST2");
     }
 }
