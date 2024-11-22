@@ -6,9 +6,13 @@ plugins {
 
 jar {
 	manifest {
-		attributes 'ClinventarioApplication': 'com.clsystem.clinventario'
+		attributes(
+
+				'Main-Class': 'com.clsystem.clinventario.ClinventarioApplication'
+		)
 	}
 }
+
 group = 'com.clsystem.clinventario'
 version = '0.0.1-SNAPSHOT'
 
