@@ -3,6 +3,7 @@ package com.clsystem.clinventario.repository;
 import com.clsystem.clinventario.entity.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IUserRepository {
 
@@ -13,4 +14,6 @@ public interface IUserRepository {
     public void removeUser(User user);
 
     public void updateUser(User user);
+
+    public Optional<User> loginUser(User user);
 }

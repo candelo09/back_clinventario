@@ -23,7 +23,7 @@ public class UserController {
         try {
             return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
         }catch(Exception e){
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
