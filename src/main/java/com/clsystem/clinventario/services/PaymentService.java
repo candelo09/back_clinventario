@@ -74,11 +74,7 @@ public class PaymentService implements IPaymentRepository {
 
         });
 
-        long diff = payment.getMembership_end_date().getTime() - new Date().getTime();
-        long dias = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-        System.out.println(dias);
-
-//        paymentDao.save(payment);
+        paymentDao.save(payment);
 
     }
 

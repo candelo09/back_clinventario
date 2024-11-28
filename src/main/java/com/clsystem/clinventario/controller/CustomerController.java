@@ -1,7 +1,9 @@
 package com.clsystem.clinventario.controller;
 
 import com.clsystem.clinventario.entity.Customer;
+import com.clsystem.clinventario.services.CustomerAccessService;
 import com.clsystem.clinventario.services.CustomerService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +15,10 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
     @Autowired
-    private CustomerService customerService;
+    private  CustomerService customerService;
+
+    @Autowired
+    private  CustomerAccessService customerAccessService;
 
     @GetMapping("/all")
     public @ResponseBody ResponseEntity<?> getAllCustomers() {
@@ -56,6 +61,23 @@ public class CustomerController {
             return new ResponseEntity<>("Customer successfully edited", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/access/{document}")
+    public @ResponseBody ResponseEntity<?> accessCustomer(@PathVariable String document) {
+        try {
+            return new ResponseEntity<>(customerAccessService.findByCustomerAccess(document), HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @GetMapping("/remaining/days/{document}")
+    public @ResponseBody ResponseEntity<?> remainingDays(@PathVariable String document) {
+        try {
+            return new ResponseEntity<>(customerAccessService.remainingDays(document), HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

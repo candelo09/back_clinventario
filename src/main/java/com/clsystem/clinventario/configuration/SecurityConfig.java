@@ -54,8 +54,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 // Autoriza las peticiones HTTP mediante el objeto authorizationManagerRequestMatcherRegistry
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
-                        .requestMatchers("/api/auth/**").permitAll()   // Permite el acceso a todas las URL que comiencen con '/api/auth/'
-                        .requestMatchers("/users/**").permitAll()  // Permite el acceso a todas las URL que comiencen con '/api/public/'
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/users/**").permitAll()
+                        .requestMatchers("/customers/**").permitAll()
                         .anyRequest().authenticated()                     // Cualquier otra URL requiere autenticación
                 )
                 // Configura la gestión de sesiones como 'STATELESS' (sin estado)

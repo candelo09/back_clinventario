@@ -49,7 +49,7 @@ public class AuthServiceImpl implements UserDetailsService  {
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
             String token = jwtUtil.generateToken(user);
-            return new AuthDto(token);
+            return new AuthDto(user.getUsername(), user.getName(),token);
         } catch (BadCredentialsException | UsernameNotFoundException e) {
             System.out.println(e.getMessage());
             throw new BadCredentialsException("Incorrect username or password");
