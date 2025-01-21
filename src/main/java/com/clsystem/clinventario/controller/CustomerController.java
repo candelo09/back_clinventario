@@ -64,20 +64,39 @@ public class CustomerController {
         }
     }
 
+//    @GetMapping("/access/{document}")
+//    public @ResponseBody ResponseEntity<?> accessCustomer(@PathVariable String document) {
+//        try {
+//            return new ResponseEntity<>(customerAccessService.findByCustomerAccess(document), HttpStatus.OK);
+//        }catch(Exception e){
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+
     @GetMapping("/access/{document}")
     public @ResponseBody ResponseEntity<?> accessCustomer(@PathVariable String document) {
-        try {
-            return new ResponseEntity<>(customerAccessService.findByCustomerAccess(document), HttpStatus.OK);
-        }catch(Exception e){
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-    @GetMapping("/remaining/days/{document}")
-    public @ResponseBody ResponseEntity<?> remainingDays(@PathVariable String document) {
         try {
             return new ResponseEntity<>(customerAccessService.remainingDays(document), HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+//    @GetMapping("/access/all")
+//    public @ResponseBody ResponseEntity<?> accessAllCustomer() {
+//        try {
+//            return new ResponseEntity<>(customerAccessService.findAllCustomerAccess(), HttpStatus.OK);
+//        }catch(Exception e){
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+
+//    @GetMapping("/remaining/days/{document}")
+//    public @ResponseBody ResponseEntity<?> remainingDays(@PathVariable String document) {
+//        try {
+//            return new ResponseEntity<>(customerAccessService.remainingDays(document), HttpStatus.OK);
+//        }catch(Exception e){
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 }

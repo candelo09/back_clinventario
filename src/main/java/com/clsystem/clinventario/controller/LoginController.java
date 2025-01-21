@@ -22,6 +22,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(path = "api/auth")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class LoginController {
 
 

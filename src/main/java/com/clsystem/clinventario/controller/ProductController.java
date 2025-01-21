@@ -32,7 +32,7 @@ public class ProductController {
 
             productService.addProduct(product);
 
-            return new ResponseEntity<>("Product successfully add", HttpStatus.CREATED);
+            return new ResponseEntity<>("", HttpStatus.CREATED);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -44,7 +44,7 @@ public class ProductController {
         try {
             product.setId(id);
             productService.removeProduct(product);
-            return new ResponseEntity<>("Product successfully delete", HttpStatus.OK);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -55,7 +55,7 @@ public class ProductController {
         try {
             product.setId(id);
             productService.updateProduct(product);
-            return new ResponseEntity<>("Product successfully edited", HttpStatus.OK);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

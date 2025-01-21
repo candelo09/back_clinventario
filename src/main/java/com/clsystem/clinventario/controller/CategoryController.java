@@ -35,7 +35,9 @@ public class CategoryController {
 
             categoryService.addCategory(category);
 
-            return new ResponseEntity<>("Category successfully add", HttpStatus.CREATED);
+
+
+            return new ResponseEntity<>("",HttpStatus.CREATED);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -45,9 +47,9 @@ public class CategoryController {
     public @ResponseBody ResponseEntity<?> deleteCategory(@PathVariable Integer id, @RequestBody Category category) {
 
         try {
-            category.setId(id);
+            category.setId_category(id);
             categoryService.removeCategory(category);
-            return new ResponseEntity<>("Category successfully delete", HttpStatus.OK);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -56,9 +58,9 @@ public class CategoryController {
     @PutMapping("/edit/{id}")
     public @ResponseBody ResponseEntity<?> editUser(@PathVariable Integer id, @RequestBody Category category){
         try {
-            category.setId(id);
+            category.setId_category(id);
             categoryService.updateCategory(category);
-            return new ResponseEntity<>("Category successfully edited", HttpStatus.OK);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

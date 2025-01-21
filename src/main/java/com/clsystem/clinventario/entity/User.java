@@ -46,6 +46,14 @@ public class User implements UserDetails {
 
     private Integer id_membership;
 
+    private String id_document;
+
+    private String email;
+
+    private String telephone;
+
+    private String address;
+
     public User(User user) {
         username = user.getUsername();
         password = user.getPassword();

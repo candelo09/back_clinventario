@@ -34,7 +34,7 @@ public class UserController {
         try {
             userService.addUser(user);
 
-            return new ResponseEntity<>("User successfully add", HttpStatus.CREATED);
+            return new ResponseEntity<>("", HttpStatus.CREATED);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -47,7 +47,7 @@ public class UserController {
         try {
             user.setId(id);
             userService.removeUser(user);
-            return new ResponseEntity<>("User successfully delete", HttpStatus.OK);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -58,7 +58,7 @@ public class UserController {
         try {
             user.setId(id);
             userService.updateUser(user);
-            return new ResponseEntity<>("User successfully edited", HttpStatus.OK);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

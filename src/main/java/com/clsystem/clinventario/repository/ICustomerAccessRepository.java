@@ -12,6 +12,7 @@ public interface ICustomerAccessRepository {
 
     Optional<CustomerAccess> findByCustomerAccess(String document);
 
-    Map<String,Long> remainingDays(String document);
+    Optional<CustomerAccess> remainingDays(String document);
+
 
 }

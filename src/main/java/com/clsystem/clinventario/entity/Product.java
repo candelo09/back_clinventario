@@ -16,7 +16,10 @@ public class Product {
     @Column(columnDefinition = "serial")
     private Integer id;
 
-    private Integer id_category;
+
+    @JoinColumn(name = "category", referencedColumnName = "id_category", insertable = false,updatable = false)
+    @ManyToOne
+    private Category category;
 
     private Integer code_prod;
 

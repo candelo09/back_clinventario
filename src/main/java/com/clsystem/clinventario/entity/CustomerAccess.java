@@ -45,4 +45,7 @@ public class CustomerAccess {
 
     private BigDecimal stature;
 
+    @Transient
+    private Long remaining_days;
+
 }
