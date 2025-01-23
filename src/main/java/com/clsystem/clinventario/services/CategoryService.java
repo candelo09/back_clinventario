@@ -32,8 +32,8 @@ public class CategoryService implements ICategoryRepository {
     }
 
     @Override
-    public void removeCategory(Category category) {
-        categoryDao.delete(category);
+    public void removeCategory(Integer id) {
+        categoryDao.deleteById(Long.valueOf(id));
     }
 
     @Override

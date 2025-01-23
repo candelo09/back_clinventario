@@ -11,7 +11,7 @@ public interface IUserRepository {
 
     public void addUser(User user);
 
-    public void removeUser(User user);
+    public void removeUser(Integer id);
 
     public void updateUser(User user);
 

@@ -25,6 +25,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Map;
 import java.util.Optional;
 
@@ -36,6 +37,7 @@ public class AuthServiceImpl implements UserDetailsService  {
 
     private final  IUserDaoRepository userDaoRepository;
 
+    private final UserService userService;
 
 //    @Override
     public AuthDto login(Map<String, String> login) throws Exception {
@@ -44,9 +46,13 @@ public class AuthServiceImpl implements UserDetailsService  {
 //            PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 //            String passworEncrypString = encoder.encode(login.get("password"));
 
+
             User user = userDaoRepository.findByUsernameAndPassword(
                     login.get("username"), login.get("password"))
                     .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+
+            user.setLast_login(new Date());
+            userService.updateUser(user);
 
             String token = jwtUtil.generateToken(user);
             return new AuthDto(user.getUsername(), user.getName(),token);

@@ -4,6 +4,7 @@ package com.clsystem.clinventario.controller;
 import com.clsystem.clinventario.entity.User;
 import com.clsystem.clinventario.repository.IAuthRepository;
 import com.clsystem.clinventario.services.AuthServiceImpl;
+import com.clsystem.clinventario.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.Map;
 
 @Controller
@@ -28,9 +30,12 @@ public class LoginController {
 
     private final AuthServiceImpl authRepository;
 
+
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> dto) {
         try {
+
             return ResponseEntity.status(HttpStatus.OK)
                     .body(authRepository.login(dto));
         } catch (BadCredentialsException | UsernameNotFoundException e) {

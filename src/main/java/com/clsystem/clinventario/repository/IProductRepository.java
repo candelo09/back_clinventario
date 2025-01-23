@@ -12,7 +12,7 @@ public interface IProductRepository {
 
     public void addProduct(Product product);
 
-    public void removeProduct(Product product);
+    public void removeProduct(Integer id);
 
     public void updateProduct(Product product);
 }

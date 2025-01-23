@@ -84,10 +84,10 @@ public class User implements UserDetails {
         return UserDetails.super.isEnabled();
     }
 
-    public String getPassword() {
-        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-
-        return encoder.encode(this.password);
-    }
+//    public String getPassword() {
+//        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+//
+//        return encoder.encode(this.password);
+//    }
 
 }

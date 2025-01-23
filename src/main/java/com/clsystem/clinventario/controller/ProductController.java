@@ -39,11 +39,11 @@ public class ProductController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public @ResponseBody ResponseEntity<?> deleteProduct(@PathVariable Integer id, @RequestBody Product product) {
+    public @ResponseBody ResponseEntity<?> deleteProduct(@PathVariable Integer id) {
 
         try {
-            product.setId(id);
-            productService.removeProduct(product);
+
+            productService.removeProduct(id);
             return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);

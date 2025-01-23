@@ -33,8 +33,8 @@ public class UserService implements IUserRepository {
     }
 
     @Override
-    public void removeUser(User user) {
-        userDao.delete(user);
+    public void removeUser(Integer id) {
+        userDao.deleteById(id);
     }
 
     @Override

@@ -32,9 +32,9 @@ public class ProductService implements IProductRepository {
     }
 
     @Override
-    public void removeProduct(Product product) {
+    public void removeProduct(Integer id) {
 
-        productDao.delete(product);
+        productDao.deleteById(id);
 
     }
 

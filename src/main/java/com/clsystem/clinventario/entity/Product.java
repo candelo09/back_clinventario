@@ -17,7 +17,7 @@ public class Product {
     private Integer id;
 
 
-    @JoinColumn(name = "category", referencedColumnName = "id_category", insertable = false,updatable = false)
+    @JoinColumn(name = "category", referencedColumnName = "id_category")
     @ManyToOne
     private Category category;
 

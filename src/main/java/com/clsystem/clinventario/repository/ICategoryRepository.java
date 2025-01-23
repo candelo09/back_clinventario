@@ -13,7 +13,7 @@ public interface ICategoryRepository {
 
     public void addCategory(Category category);
 
-    public void removeCategory(Category category);
+    public void removeCategory(Integer id);
 
     public void updateCategory(Category category);
 

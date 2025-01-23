@@ -18,9 +18,9 @@ public class CustomerAccessService implements ICustomerAccessRepository {
     private IAccessCustomerDaoRepository accessCustomerDaoRepository;
 
     @Override
-    public Optional<CustomerAccess> findByCustomerAccess(String document) {
+    public List<CustomerAccess> findByCustomerAccess(String document) {
 
-        return accessCustomerDaoRepository.findByDocumentAccess(document);
+        return accessCustomerDaoRepository.findByInfoDocument(document);
     }
 
     @Override

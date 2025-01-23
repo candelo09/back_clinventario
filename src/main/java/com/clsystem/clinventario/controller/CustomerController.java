@@ -64,14 +64,14 @@ public class CustomerController {
         }
     }
 
-//    @GetMapping("/access/{document}")
-//    public @ResponseBody ResponseEntity<?> accessCustomer(@PathVariable String document) {
-//        try {
-//            return new ResponseEntity<>(customerAccessService.findByCustomerAccess(document), HttpStatus.OK);
-//        }catch(Exception e){
-//            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
+    @GetMapping("/info/{document}")
+    public @ResponseBody ResponseEntity<?> getCustomerByDocument(@PathVariable String document) {
+        try {
+            return new ResponseEntity<>(customerAccessService.findByCustomerAccess(document), HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @GetMapping("/access/{document}")
     public @ResponseBody ResponseEntity<?> accessCustomer(@PathVariable String document) {

@@ -63,7 +63,9 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/users/**").authenticated()
                         .requestMatchers("/customers/**").permitAll()
+                        .requestMatchers("/payments/**").authenticated()
                         .requestMatchers("/categories/**").authenticated()
+                        .requestMatchers("/products/**").authenticated()
                         .anyRequest().authenticated()                     // Cualquier otra URL requiere autenticación
                 )
                 // Configura la gestión de sesiones como 'STATELESS' (sin estado)
