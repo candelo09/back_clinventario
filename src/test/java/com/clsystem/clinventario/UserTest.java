@@ -22,7 +22,7 @@ public class UserTest {
      */
     @Test
     public void testUserName(){
-        String username = "admin";
+        String username = "TEST2";
 
         ResponseEntity<?> testUserRes = userController.getAllUsers();
 
@@ -30,6 +30,6 @@ public class UserTest {
 
         assertThat(testUserRes).isNotNull();
         assert users != null;
-        assertThat(users.get(0).getUsername()).isEqualTo("TEST2");
+        assertThat(users.get(0).getUsername()).isEqualTo("crisann");
     }
 }
