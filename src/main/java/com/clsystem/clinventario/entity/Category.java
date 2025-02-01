@@ -12,7 +12,7 @@ public class Category {
 
     @Id()
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(columnDefinition = "serial")
+//    @Column(columnDefinition = "serial")
     private Integer id_category;
 
     private String category;
@@ -21,4 +21,11 @@ public class Category {
 
     private Date update_at;
 
+    public Category(Integer id_category, String category) {
+        this.id_category = id_category;
+        this.category = category;
+    }
+
+    public Category() {
+    }
 }
