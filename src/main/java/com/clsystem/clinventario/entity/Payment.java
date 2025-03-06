@@ -24,9 +24,13 @@ public class Payment {
 
     private Integer payment_state;
 
-    private Long id_membership;
+    @JoinColumn(name = "id_membership", referencedColumnName = "id")
+    @ManyToOne
+    private Membership membership;
 
-    private Integer id_customer;
+    @JoinColumn(name = "id_customer", referencedColumnName = "id")
+    @ManyToOne
+    private Customer customer;
 
     private Date membership_start_date;
 

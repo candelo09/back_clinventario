@@ -3,6 +3,7 @@ package com.clsystem.clinventario.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity()
@@ -17,7 +18,7 @@ public class Customer {
 
     private String name;
 
-    private String id_document;
+    private String document;
 
     private String email;
 
@@ -25,7 +26,7 @@ public class Customer {
 
     private String address;
 
-    private Date date_birth;
+    private LocalDate date_birth;
 
     private Double purchases;
 
@@ -34,4 +35,10 @@ public class Customer {
     private Date create_at;
 
     private Date update_at;
+
+    private String blood_type;
+
+    private String eps;
+
+    private Integer state;
 }

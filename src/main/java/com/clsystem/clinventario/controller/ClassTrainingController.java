@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(path = "class_trainings")
+@RequestMapping(path = "back/class_trainings")
 public class ClassTrainingController {
 
     @Autowired

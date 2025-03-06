@@ -39,7 +39,6 @@ public class User implements UserDetails {
 
     private Date create_at;
 
-
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private UserRole role;

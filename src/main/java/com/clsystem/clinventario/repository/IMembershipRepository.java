@@ -12,7 +12,7 @@ public interface IMembershipRepository {
 
     public void addMembership(Membership membership);
 
-    public void removeMembership(Membership membership);
+    public void removeByIdMembership(Long id);
 
     public void updateMembership(Membership membership);
 }

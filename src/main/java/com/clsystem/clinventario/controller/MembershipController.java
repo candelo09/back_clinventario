@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(path = "memberships")
+@RequestMapping(path = "back/memberships")
 public class MembershipController {
 
     @Autowired
@@ -30,19 +30,19 @@ public class MembershipController {
 
             membershipsService.addMembership(membership);
 
-            return new ResponseEntity<>("Membership successfully add", HttpStatus.CREATED);
+            return new ResponseEntity<>("", HttpStatus.CREATED);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @DeleteMapping("/delete/{id}")
-    public @ResponseBody ResponseEntity<?> deleteMembership(@PathVariable Integer id, @RequestBody Membership membership) {
+    public @ResponseBody ResponseEntity<?> deleteMembership(@PathVariable Long id) {
 
         try {
-            membership.setId(id);
-            membershipsService.removeMembership(membership);
-            return new ResponseEntity<>("Membership successfully delete", HttpStatus.OK);
+            //membership.setId(id);
+            membershipsService.removeByIdMembership(id);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -53,7 +53,7 @@ public class MembershipController {
         try {
             membership.setId(id);
             membershipsService.updateMembership(membership);
-            return new ResponseEntity<>("Membership successfully edited", HttpStatus.OK);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

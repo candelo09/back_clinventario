@@ -60,12 +60,13 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 // Autoriza las peticiones HTTP mediante el objeto authorizationManagerRequestMatcherRegistry
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/users/**").authenticated()
-                        .requestMatchers("/customers/**").permitAll()
-                        .requestMatchers("/payments/**").authenticated()
-                        .requestMatchers("/categories/**").authenticated()
-                        .requestMatchers("/products/**").authenticated()
+                        .requestMatchers("/back/api/auth/**").permitAll()
+                        .requestMatchers("/back/users/**").authenticated()
+                        .requestMatchers("/back/customers/**").permitAll()
+                        .requestMatchers("/back/payments/**").authenticated()
+                        .requestMatchers("/back/categories/**").authenticated()
+                        .requestMatchers("/back/products/**").authenticated()
+                        .requestMatchers("/back/phyisical/progress/**").authenticated()
                         .anyRequest().authenticated()                     // Cualquier otra URL requiere autenticación
                 )
                 // Configura la gestión de sesiones como 'STATELESS' (sin estado)

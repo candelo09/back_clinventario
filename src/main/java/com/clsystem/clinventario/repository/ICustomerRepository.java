@@ -9,11 +9,13 @@ public interface ICustomerRepository {
 
     public Iterable<Customer> findAllCustomers();
 
-    public Optional<Customer> findByIdCustomer(Integer id);
+    public Optional<Customer> findByIdCustomer(Long id);
 
     public void addCustomer(Customer customer);
 
-    public void removeCustomer(Customer customer);
+    public void removeCustomerById(Integer id);
 
     public void updateCustomer(Customer customer);
+
+    Optional<Customer> findByDocument(String idDocument);
 }

@@ -37,15 +37,15 @@ public class PaymentService implements IPaymentRepository {
 
         Date date = new Date();
 
-        payment.setPaid_date(date);
-
-        payment.setMembership_start_date(date);
-        payment.setMembership_end_date(date);
+//        payment.setPaid_date(date);
+//
+//        payment.setMembership_start_date(date);
+//        payment.setMembership_end_date(date);
 
         Calendar calendar = Calendar.getInstance();
 
-        calendar.setTime(date);
-        Optional<Membership> membership = membershipService.findByIdMembership(payment.getId_membership());
+        calendar.setTime(payment.getMembership_start_date());
+        Optional<Membership> membership = membershipService.findByIdMembership(Long.valueOf(payment.getMembership().getId()));
 
         //AtomicReference<Integer> id_plan_membership = new AtomicReference<>(0);
         membership.ifPresent(value -> {

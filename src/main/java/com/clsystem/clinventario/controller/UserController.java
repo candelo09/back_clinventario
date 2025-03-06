@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping(path = "users")
+@RequestMapping(path = "back/users")
 public class UserController {
     @Value("${PATH_FILE_IMAGES}")
     String path_file;

@@ -20,7 +20,7 @@ public class CustomerService implements ICustomerRepository {
     }
 
     @Override
-    public Optional<Customer> findByIdCustomer(Integer id) {
+    public Optional<Customer> findByIdCustomer(Long id) {
         return customerRepository.findById(id);
     }
 
@@ -32,9 +32,9 @@ public class CustomerService implements ICustomerRepository {
     }
 
     @Override
-    public void removeCustomer(Customer customer) {
+    public void removeCustomerById(Integer id) {
         
-        customerRepository.delete(customer);
+        customerRepository.deleteById(Long.valueOf(id));
 
     }
 
@@ -44,6 +44,11 @@ public class CustomerService implements ICustomerRepository {
         customerRepository.save(customer);
         
 
+    }
+
+    @Override
+    public Optional<Customer> findByDocument(String idDocument) {
+        return this.customerRepository.findByDocument(idDocument);
     }
 
 }

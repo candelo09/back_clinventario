@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Map;
 
 @Controller
-@RequestMapping(path = "api/auth")
+@RequestMapping(path = "back/api/auth")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class LoginController {
@@ -33,7 +33,7 @@ public class LoginController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Map<String, String> dto) {
+    public @ResponseBody ResponseEntity<?> login(@RequestBody Map<String, String> dto) {
         try {
 
             return ResponseEntity.status(HttpStatus.OK)

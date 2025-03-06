@@ -1,6 +1,7 @@
 package com.clsystem.clinventario.controller;
 
 
+import com.clsystem.clinventario.entity.Membership;
 import com.clsystem.clinventario.entity.Payment;
 import com.clsystem.clinventario.services.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(path = "payments")
+@RequestMapping(path = "back/payments")
 public class PaymentController {
 
     @Autowired
@@ -29,9 +30,10 @@ public class PaymentController {
     public @ResponseBody ResponseEntity<?> savePayment(@RequestBody Payment payment) {
         try {
 
+
             paymentService.addPayment(payment);
 
-            return new ResponseEntity<>("Payment successfully add", HttpStatus.CREATED);
+            return new ResponseEntity<>("", HttpStatus.CREATED);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -43,7 +45,7 @@ public class PaymentController {
         try {
             payment.setId(id);
             paymentService.removePayment(payment);
-            return new ResponseEntity<>("Payment successfully delete", HttpStatus.OK);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -54,7 +56,7 @@ public class PaymentController {
         try {
             payment.setId(id);
             paymentService.updatePayment(payment);
-            return new ResponseEntity<>("Payment successfully edited", HttpStatus.OK);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

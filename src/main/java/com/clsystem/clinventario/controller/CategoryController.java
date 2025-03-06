@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Locale;
 
 @Controller
-@RequestMapping(path = "categories")
+@RequestMapping(path = "back/categories")
 public class CategoryController {
 
     @Autowired

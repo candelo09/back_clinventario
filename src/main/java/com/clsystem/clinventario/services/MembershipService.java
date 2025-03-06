@@ -33,9 +33,9 @@ public class MembershipService implements IMembershipRepository {
     }
 
     @Override
-    public void removeMembership(Membership membership) {
+    public void removeByIdMembership(Long id) {
 
-        membershipDao.delete(membership);
+        membershipDao.deleteById(id);
 
     }
 

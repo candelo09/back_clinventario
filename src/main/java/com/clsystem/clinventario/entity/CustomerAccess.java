@@ -15,7 +15,7 @@ public class CustomerAccess {
     @Column(columnDefinition = "serial")
     private Long id;
 
-    private String id_document;
+    private String document;
 
     private String name;
 

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(path = "customers")
+@RequestMapping(path = "back/customers")
 public class CustomerController {
 
     @Autowired
@@ -35,19 +35,19 @@ public class CustomerController {
 
             customerService.addCustomer(customer);
 
-            return new ResponseEntity<>("Customer successfully add", HttpStatus.CREATED);
+            return new ResponseEntity<>(customer, HttpStatus.CREATED);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
     @DeleteMapping("/delete/{id}")
-    public @ResponseBody ResponseEntity<?> deleteCustomer(@PathVariable Integer id, @RequestBody Customer customer) {
+    public @ResponseBody ResponseEntity<?> deleteCustomer(@PathVariable Integer id) {
 
         try {
-            customer.setId(id);
-            customerService.removeCustomer(customer);
-            return new ResponseEntity<>("Customer successfully delete", HttpStatus.OK);
+//            customer.setId(id);
+            customerService.removeCustomerById(id);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -56,9 +56,11 @@ public class CustomerController {
     @PutMapping("/edit/{id}")
     public @ResponseBody ResponseEntity<?> editUser(@PathVariable Integer id, @RequestBody Customer customer){
         try {
+
+            System.out.println(customer.getDate_birth());
             customer.setId(id);
             customerService.updateCustomer(customer);
-            return new ResponseEntity<>("Customer successfully edited", HttpStatus.OK);
+            return new ResponseEntity<>("", HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -77,6 +79,15 @@ public class CustomerController {
     public @ResponseBody ResponseEntity<?> accessCustomer(@PathVariable String document) {
         try {
             return new ResponseEntity<>(customerAccessService.remainingDays(document), HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/{document}")
+    public @ResponseBody ResponseEntity<?> getCustomerByIdDocument(@PathVariable String document) {
+        try {
+            return new ResponseEntity<>(customerService.findByDocument(document), HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
