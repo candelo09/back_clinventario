@@ -12,7 +12,7 @@ public class Membership {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(columnDefinition = "serial")
+//    @Column(columnDefinition = "serial")
     private Integer id;
 
     private String type_membership;
@@ -22,4 +22,11 @@ public class Membership {
     private Integer state;
 
     private Integer code_plan;
+
+    public Membership(String type_membership, Double price, Integer state, Integer code_plan) {
+        this.type_membership = type_membership;
+        this.price = price;
+        this.state = state;
+        this.code_plan = code_plan;
+    }
 }

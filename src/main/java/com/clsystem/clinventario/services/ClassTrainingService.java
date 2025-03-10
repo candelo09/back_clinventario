@@ -13,6 +13,7 @@ public class ClassTrainingService implements IClassTrainingRepository {
 
     @Autowired
     private IClassTrainingDaoRepository classTrainingDaoRepository;
+
     @Override
     public Iterable<ClassTraining> findAllClassesTraining() {
         return classTrainingDaoRepository.findAll();
